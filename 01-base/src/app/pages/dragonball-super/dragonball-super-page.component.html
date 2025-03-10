@@ -1,0 +1,13 @@
+<h1>DragonBall </h1>
+<hr/>
+<section class="row">
+    <div class="col-6 col-sm-6">
+        <character-form-component (characterAdded)="dragonballService.addCharacter($event)"></character-form-component>
+    </div>
+    <div class="col-6">
+        <dragonball-character-list 
+        listName="Listado de personajes" 
+        [characters]="dragonballService.characters()"/>
+       
+    </div>
+</section>

@@ -1,0 +1,39 @@
+<h1>DragonBall </h1>
+<hr/>
+<section class="row">
+    <div class="col-6 col-sm-6">
+        <h3>
+            Agregar: {{name()}}
+        </h3>
+        <input type="text" [value]="name()" 
+        (change)="name.set(txtName.value)" 
+        #txtName
+        class="form-control" 
+        placeholder="Nombre" />
+
+        <input type="number" 
+        #txtPower
+        [value]="power()"
+        (input)="power.set(+txtPower.value)"
+        class="form-control" 
+        placeholder="Poder"/>
+
+        <button (click)="addCharacter()" class="btn btn-primary">Agregar</button>
+    </div>
+    <div class="col-6">
+        <h3>Listado</h3>
+        <ul>
+            @for(character of characters();track character.id; let idx = $index){
+                @if(character.power > 500){
+                    <li>
+                        <span>{{idx + 1}}-{{character.name}}</span>
+                        <strong [class.text-danger] ="character.power > 5000"> {{character.power}}</strong>
+                    </li>
+                }@else
+                {
+                    <li>no hay nada</li>
+                }
+            }
+        </ul>
+    </div>
+</section>

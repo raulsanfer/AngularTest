@@ -1,0 +1,17 @@
+<h3>
+    Agregar: {{name()}}
+</h3>
+<input type="text" [value]="name()" 
+(change)="name.set(txtName.value)" 
+#txtName
+class="form-control" 
+placeholder="Nombre" />
+
+<input type="number" 
+#txtPower
+[value]="power()"
+(input)="power.set(+txtPower.value)"
+class="form-control" 
+placeholder="Poder"/>
+
+<button (click)="formAddCharacter()" class="btn btn-primary">Agregar</button>
