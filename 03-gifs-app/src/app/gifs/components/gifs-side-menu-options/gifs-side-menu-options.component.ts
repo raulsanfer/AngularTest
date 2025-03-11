@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { GifService } from './../../services/gifs.service';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 interface MenuOption{
@@ -14,6 +15,9 @@ interface MenuOption{
   templateUrl: './gifs-side-menu-options.component.html'  
 })
 export class GifsSideMenuOptionsComponent { 
+
+  gifService = inject(GifService);
+
   meunOptions:MenuOption[] = [
     {
       icon : 'fa-solid fa-chart-line',
@@ -28,6 +32,10 @@ export class GifsSideMenuOptionsComponent {
       route:'/dashboard/search'
     }
   ]
+
+  removeHistoryItem (clave:string){
+    this.gifService.removeHistoryItem(clave);
+  }
  }
 
 //  {

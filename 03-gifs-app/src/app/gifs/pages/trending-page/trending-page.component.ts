@@ -1,5 +1,6 @@
-import {Component, signal } from '@angular/core';
+import {Component, computed, inject, signal } from '@angular/core';
 import { GifsListComponent } from "../../components/gis-content/gifs-list/gifs-list.component";
+import { GifService } from '../../services/gifs.service';
 
 const imageUrls:string[] = [
   "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
@@ -22,10 +23,15 @@ const imageUrls:string[] = [
   templateUrl: './trending-page.component.html'
 })
 export default class TrendingPageComponent { 
-  listGifs = signal(imageUrls);
+  
   verMasonry = signal(false);
-  cambioVista(e:boolean) {
-    console.log(e);
+
+  gifService = inject(GifService);
+  //listGifs = signal(gifService.);
+
+  cambioVista(e:boolean) {    
     this.verMasonry.update(()=>e);    
   }
+
+
 }

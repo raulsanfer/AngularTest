@@ -1,6 +1,6 @@
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     <!-- si no masonry -->
-    @if (masonry()) {
+    <!-- @if (masonry()) {
         @let inicioBloque = true;
         @let finBloque = false;
         @let patronBloqueInicial = '<div class="grid gap-4">';
@@ -13,17 +13,17 @@
             @if(inicioBloque){
                 <div [innerHTML]="patronBloqueInicial"></div>
             }
-            <gifs-list-item [imageUrl]="item"></gifs-list-item>
+            <gifs-list-item [imageUrl]="item.url"></gifs-list-item>
             @if(finBloque)
             {
                 <div [innerHTML]="patronBloqueFinal"></div>
             }
             contador = (contador == 3) ? 1 : contador + 1;
         }
-    }
-    @else {
+    }}
+    @else { -->
         @for (item of gifs(); track item) {        
-            <gifs-list-item [imageUrl]="item"></gifs-list-item> 
+            <gifs-list-item [imageUrl]="item.url"></gifs-list-item> 
         }
-    }
+    
 </div>
