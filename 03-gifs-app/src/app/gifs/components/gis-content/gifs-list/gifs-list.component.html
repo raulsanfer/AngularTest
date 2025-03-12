@@ -1,29 +1,25 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    <!-- si no masonry -->
-    <!-- @if (masonry()) {
-        @let inicioBloque = true;
-        @let finBloque = false;
-        @let patronBloqueInicial = '<div class="grid gap-4">';
-        @let patronBloqueFinal = '</div>';
-        @let itemsPorBloque = 3;
-        @let contador = 1;
-        @for (item of gifs(); track item) {        
-            inicioBloque = contador == 1;
-            finBloque = contador == 3;
-            @if(inicioBloque){
-                <div [innerHTML]="patronBloqueInicial"></div>
+<div class="flex flex-row">
+    <label class="text-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " value="">
+       <input type="checkbox" (change)="cambioVista($event)" >Masonry
+    </label>
+</div>
+@if (masonry()) {
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        @for (block of this.GifsBlocks(); track block) {
+          <div class="grid gap-4">
+            @for (item of block; track item.id) {                
+                <div>
+                    <img class="h-full w-full rounded-lg object-cover" [src]="item.url">
+                </div>
             }
-            <gifs-list-item [imageUrl]="item.url"></gifs-list-item>
-            @if(finBloque)
-            {
-                <div [innerHTML]="patronBloqueFinal"></div>
-            }
-            contador = (contador == 3) ? 1 : contador + 1;
+          </div>
         }
-    }}
-    @else { -->
-        @for (item of gifs(); track item) {        
+      </div>
+    }
+@else {
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        @for (item of gifs(); track item) {
             <gifs-list-item [imageUrl]="item.url"></gifs-list-item> 
         }
-    
-</div>
+    </div>
+}

@@ -29,9 +29,7 @@ export default class TrendingPageComponent {
   gifService = inject(GifService);
   //listGifs = signal(gifService.);
 
-  cambioVista(e:boolean) {    
-    this.verMasonry.update(()=>e);    
-  }
+  
 
 
 }

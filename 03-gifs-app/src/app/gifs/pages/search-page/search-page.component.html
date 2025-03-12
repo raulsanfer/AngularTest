@@ -7,32 +7,12 @@
     (keyup.enter)="onSearch(txtSearch.value)" #txtSearch/>
 </section>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    <!-- si no masonry -->
-    <!-- @if (masonry()) {
-        @let inicioBloque = true;
-        @let finBloque = false;
-        @let patronBloqueInicial = '<div class="grid gap-4">';
-        @let patronBloqueFinal = '</div>';
-        @let itemsPorBloque = 3;
-        @let contador = 1;
-        @for (item of gifs(); track item) {        
-            inicioBloque = contador == 1;
-            finBloque = contador == 3;
-            @if(inicioBloque){
-                <div [innerHTML]="patronBloqueInicial"></div>
-            }
-            <gifs-list-item [imageUrl]="item.url"></gifs-list-item>
-            @if(finBloque)
-            {
-                <div [innerHTML]="patronBloqueFinal"></div>
-            }
-            contador = (contador == 3) ? 1 : contador + 1;
-        }
-    }}
-    @else { -->
-        @for (item of gifs(); track item) {        
-            <gifs-list-item [imageUrl]="item.url"></gifs-list-item> 
-        }
-    
-</div>
+<section class="py-5 ">
+    <gifs-list [gifs]="gifs()"></gifs-list>
+</section>
+
+<!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">   
+    @for (item of gifs(); track item) {        
+        <gifs-list-item [imageUrl]="item.url"></gifs-list-item> 
+    }
+</div> -->
