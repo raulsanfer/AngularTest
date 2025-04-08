@@ -1,0 +1,9 @@
+<section class="flex flex-row gap-2 mt-2" >
+    <input type="text"
+    #txtSearch 
+    (keyup.enter)="value.emit(txtSearch.value)"
+    class="input input-bordered mr-2 w-56" 
+    [placeholder]="placeholder()">
+
+    <button (click)="value.emit(txtSearch.value)" class="btn bt-primary">Buscar</button>
+</section>
