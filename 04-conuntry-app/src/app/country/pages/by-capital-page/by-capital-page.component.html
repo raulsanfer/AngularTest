@@ -1,2 +1,2 @@
-<country-search placeholder="Busca por capital" ></country-search>
-<table-country></table-country>
+<country-search placeholder="Busca por capital" (value)="onSearch($event)" ></country-search>
+<table-country [countries]="countries()"></table-country>
