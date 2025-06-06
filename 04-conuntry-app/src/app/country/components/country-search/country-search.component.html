@@ -2,8 +2,10 @@
     <input type="text"
     #txtSearch 
     (keyup.enter)="value.emit(txtSearch.value)"
+    (keyup)="inputValue.set(txtSearch.value)"
     class="input input-bordered mr-2 w-56" 
-    [placeholder]="placeholder()">
+    [placeholder]="placeholder()"
+    [value] = "inputValue()">
 
     <button (click)="value.emit(txtSearch.value)" class="btn bt-primary">Buscar</button>
 </section>

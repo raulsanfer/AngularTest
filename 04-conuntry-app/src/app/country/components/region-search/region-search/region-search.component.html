@@ -1,0 +1,8 @@
+<!--agregar botones por cada region a buscar-->
+<ul class="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
+  @for (region of regions;track region){
+  <li><button (click)="emitValue(region)" [class.active]="selectedRegion() === region" class="">    
+    <span class="btm-nav-label">{{region}}</span> 
+    </button></li>
+  }
+</ul>

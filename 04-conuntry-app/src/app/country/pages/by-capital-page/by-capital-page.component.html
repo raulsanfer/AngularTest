@@ -1,2 +1,9 @@
-<country-search placeholder="Busca por capital" (value)="onSearch($event)" ></country-search>
-<table-country [countries]="countries()"></table-country>
+<country-search placeholder="Busca por capital" (value)="query1.set($event)" [initialValue]="query1()"></country-search>
+
+@if(countryResource.hasValue()){
+    <table-country 
+    [countries]="countryResource.value()" 
+    [errorMessage]="countryResource.error()" 
+    [isLoading]="countryResource.isLoading()"
+    [isEmpty]="countryResource.value().length == 0"></table-country>
+} 

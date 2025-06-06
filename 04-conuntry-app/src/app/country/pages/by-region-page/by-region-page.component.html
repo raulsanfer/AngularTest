@@ -1,1 +1,8 @@
-<!--<table-country></table-country>-->
+<region-search (value)="query.set($event)"></region-search>
+
+@if(countryResource.hasValue()){
+    <table-country [countries]="countryResource.value() ?? []" 
+    [errorMessage]="countryResource.error()" 
+    [isLoading]="countryResource.isLoading()"
+    [isEmpty]="countryResource.value()?.length == 0"></table-country>
+} 

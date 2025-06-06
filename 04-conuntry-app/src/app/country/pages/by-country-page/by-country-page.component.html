@@ -1,1 +1,14 @@
-<country-search placeholder="Busca por pais" ></country-search>
+<country-search placeholder="Busca por pais" (value)="query.set($event)" ></country-search>
+<!-- <table-country [countries]="[]"></table-country> -->
+ @if(countryResource.error()) {
+    <div class="alert alert-danger mt-5">
+        <strong>{{countryResource.error()}}</strong>
+    </div>
+}
+@if(countryResource.hasValue()){
+    <table-country [countries]="countryResource.value() ?? []" 
+    [errorMessage]="countryResource.error()" 
+    [isLoading]="countryResource.isLoading()"
+    [isEmpty]="countryResource.value()?.length == 0"></table-country>
+} 
+
