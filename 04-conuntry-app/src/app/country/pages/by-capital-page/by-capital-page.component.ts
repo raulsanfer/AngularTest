@@ -16,7 +16,6 @@ export class ByCapitalPageComponent {
   
   countryService = inject(CountryService);
   
-
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router)
 
