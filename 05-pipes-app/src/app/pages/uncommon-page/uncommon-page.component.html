@@ -1,1 +1,16 @@
-<p>uncommon-page works!</p>,
+<section class="mx-5 mb-5">
+    <h1 class="text-2xl font-bold">Pipes no tan comunes</h1>
+    <h3 class="text-xl font-thin">Pipes incluidos en Angular</h3>
+</section>
+
+<div class="grid grid-cols-1 gap-4">
+ <app-card title="Con jsonPipe">    
+    <p>Como mostrar el contenido del objeto json de diferentes formas</p>   
+    <p>{{ getHobbiesJson() | json }}<p>
+        <p>{{ getAddressJson() | json }}<p></p>       
+</app-card>
+<div class="grid grid-cols-1 gap-4">
+ <app-card title="Sin jsonPipe solo string">        
+          <p>{{getHobbiesStringOnly()}}</p>
+</app-card>
+</div>
