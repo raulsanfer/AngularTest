@@ -49,7 +49,7 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           placeholder="Existencias del producto"
+                           placeholder="Existencias del producto"                           
                            formControlName="inStorage">
 
                     @if(formUtils.isValidField(this.myForm, 'inStorage'))
@@ -95,6 +95,9 @@
 
         <span>Value</span>
         <pre>{{ myForm.value | json }}</pre>
+
+        <span>Errors</span>
+        <pre>{{ myForm.errors | json }}</pre>
 
         <span>Precio</span>
         <pre>{{ myForm.get('price')?.value | json }}</pre>
