@@ -1,1 +1,11 @@
-<p>markers-page works!</p>,
+<div #map class="h-[calc(100vh-64px)]"></div>
+<section style="z-index: 999;position:fixed;top:64px;right:10px;background-color:white;padding:10px;border-radius:5px;">
+    <h3 class="text-center">Markers</h3>
+    <hr />
+   @for (item of markers(); track item) {
+        <div class="mb-2 p-2 border rounded">
+            <!-- Render marker item here -->
+            {{ item.marker!.getLngLat() | json }}
+        </div>
+    }
+</section>
